@@ -7,11 +7,5 @@ module.exports = class UpdateCache extends SubScription {
       type: "all",
     };
   }
-  async subscribe() {
-    console.log('定时任务')
-    // const res = await this.ctx.curl("http://www.api.com/cache", {
-    //   dataType: "json",
-    // });
-    // this.ctx.app.cache = res.data;
-  }
+  async subscribe() {}
 };

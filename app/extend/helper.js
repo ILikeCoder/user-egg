@@ -19,4 +19,9 @@ module.exports = {
     };
     this.ctx.status = 200;
   },
+  getToken(options) {
+    return this.app.jwt.sign(options, this.app.config.jwt.secret, {
+      expiresIn: "24h",
+    });
+  },
 };

@@ -5,7 +5,7 @@ const Service = require("egg").Service;
 class UserService extends Service {
   // 获取用户
   async getUserList() {
-    return this.ctx.model.User.find();
+    return this.ctx.model.User.find()
   }
   // 创建用户
   async create(payload) {

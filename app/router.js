@@ -5,6 +5,7 @@
  */
 module.exports = app => {
   const { router, controller } = app;
+  router.post("/api/user/login", controller.login.index);
   router.get("/api/user", controller.user.getUserList);
   router.post("/api/user/create", controller.user.create);
   router.get("/api/user/:id", controller.user.detail);
