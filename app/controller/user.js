@@ -57,8 +57,12 @@ module.exports = class UserController extends Controller {
   async delete() {
     const { ctx, service } = this;
     const id = ctx.params.id;
-    await service.user.delete(id);
-    ctx.helper.msg("删除用户数据成功");
+    try {
+      await service.user.delete(id);
+      ctx.helper.msg("删除用户数据成功");
+    } catch (e) {
+      ctx.helper.msg(e);
+    }
   }
   async deleteAllUser() {
     const { ctx, service } = this;

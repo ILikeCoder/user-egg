@@ -5,7 +5,7 @@ const Service = require("egg").Service;
 class UserService extends Service {
   // 获取用户
   async getUserList() {
-    return this.ctx.model.User.find()
+    return this.ctx.model.User.find();
   }
   // 创建用户
   async create(payload) {
@@ -21,7 +21,11 @@ class UserService extends Service {
   }
   // 删除某个用户
   async delete(_id) {
-    return this.ctx.model.User.findByIdAndDelete(_id);
+    const res = await this.ctx.model.User.findById(_id);
+    if (res) {
+      return this.ctx.model.User.findByIdAndDelete(_id);
+    }
+    throw new Error("删除用户失败");
   }
   // 删除所有用户
   async deleteAllUser() {
